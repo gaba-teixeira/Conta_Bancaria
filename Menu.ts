@@ -2,31 +2,42 @@ import readlinesync = require("readline-sync");
 import { colors } from "./src/util/Cores";
 import { Conta } from "./src/model/Conta";
 import { ContaCorrente } from "./src/model/contaCorrente";
+import { ContaPoupanca } from "./src/model/ContaPoupanca";
 
 export function main() {
   let option: number;
 
-  // //Cria novas instancias (objetos) da Classe Conta
-  // const c1 = new Conta(1, 123, 1, "Jonas", 10000);
-  // c1.visualizar();
-  // //Saque
-  // console.log(c1.sacar(readlinesync.questionFloat("Quanto vc quer sacar: ")));
-  // c1.visualizar();
+//   Cria novas instancias (objetos) da Classe Conta
+  const c1 = new Conta(1, 123, 1, "Jonas", 10000);
+  c1.visualizar();
+  //Saque
+  console.log(c1.sacar(readlinesync.questionFloat("Quanto vc quer sacar: ")));
+  c1.visualizar();
 
-  // const c2 = new Conta(1, 123, 2, "Andressa", 10000);
-  // c2.visualizar();
-  // //Deposito
-  // c2.depositar(100.0);
-  // c2.visualizar();
+  const c2 = new Conta(1, 123, 2, "Andressa", 10000);
+  c2.visualizar();
+  //Deposito
+  c2.depositar(100.0);
+  c2.visualizar();
 
-  //Criar conta corrente
+//   Criar conta corrente
   const cc1 = new ContaCorrente(3, 123, 1, "Aline", 10000, 4000);
   cc1.visualizar();
+//   Saque
   console.log(cc1.sacar(readlinesync.questionFloat("Quanto vc quer sacar: ")));
   console.log(`Novo saldo: ${cc1.saldo}`);
-
+// Deposito
   cc1.depositar(5000);
   cc1.visualizar();
+
+  //Criar Conta Poupança
+  const cp1 = new ContaPoupanca(5, 123, 2, "Amanda", 5000, 18)
+  cp1.visualizar()
+  cp1.sacar(6000)
+  console.log(`Novo saldo: ${cp1.saldo}`)
+  
+  cp1.depositar(readlinesync.questionFloat("Digite valor a ser depositado: "))
+  cp1.visualizar()
 
   while (true) {
     console.log(
