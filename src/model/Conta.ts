@@ -63,20 +63,19 @@ export class Conta {
     this._saldo = value;
   }
 
-public sacar(valor: number) : boolean {
-  if(valor > this._saldo){
-    console.log("Saldo insuficiente!")
-return false;}
+  public sacar(valor: number): boolean {
+    if (valor > (this._saldo)) {
+      console.log("Saldo insuficiente!");
+      return false;
+    }
 
-  this._saldo-= valor;
-  return true;
-}
+    this._saldo -= valor;
+    return true;
+  }
 
-public depositar(valor: number){
-  this._saldo += valor;
-}
-
-
+  public depositar(valor: number) {
+    this._saldo += valor;
+  }
 
   public visualizar() {
     let tipo: string;

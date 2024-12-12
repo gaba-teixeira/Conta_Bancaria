@@ -1,22 +1,32 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/Cores";
 import { Conta } from "./src/model/Conta";
+import { ContaCorrente } from "./src/model/contaCorrente";
 
 export function main() {
   let option: number;
 
-  //Cria novas instancias (objetos) da Classe Conta
-  const c1 = new Conta(1, 123, 1, "Jonas", 10000);
-  c1.visualizar();
-  //Saque
-  console.log(c1.sacar(200000));
-  c1.visualizar();
+  // //Cria novas instancias (objetos) da Classe Conta
+  // const c1 = new Conta(1, 123, 1, "Jonas", 10000);
+  // c1.visualizar();
+  // //Saque
+  // console.log(c1.sacar(readlinesync.questionFloat("Quanto vc quer sacar: ")));
+  // c1.visualizar();
 
-  const c2 = new Conta(1, 123, 2, "Andressa", 10000);
-  c2.visualizar();
-  //Deposito
-  c2.depositar(100.0);
-  c2.visualizar();
+  // const c2 = new Conta(1, 123, 2, "Andressa", 10000);
+  // c2.visualizar();
+  // //Deposito
+  // c2.depositar(100.0);
+  // c2.visualizar();
+
+  //Criar conta corrente
+  const cc1 = new ContaCorrente(3, 123, 1, "Aline", 10000, 4000);
+  cc1.visualizar();
+  console.log(cc1.sacar(readlinesync.questionFloat("Quanto vc quer sacar: ")));
+  console.log(`Novo saldo: ${cc1.saldo}`);
+
+  cc1.depositar(5000);
+  cc1.visualizar();
 
   while (true) {
     console.log(
