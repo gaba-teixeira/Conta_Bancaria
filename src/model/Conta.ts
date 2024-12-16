@@ -24,7 +24,7 @@ export abstract class Conta {
   //Gerar os Metodos Getter's e Setter's
 
   public get numero(): number {
-    return this._numero;
+    return this._numero; 
   }
 
   public get agencia(): number {
